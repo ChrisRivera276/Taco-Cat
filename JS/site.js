@@ -2,7 +2,7 @@
 function getMessage() {
     let msg = document.getElementById("txtmessage").value;
 
-    // validate if the msg not equal to empty string
+    // validate if the msg values are equal
     if (msg != '') {
         msg = msg.toLowerCase();
         let messageFirst = firstMessage(msg)
@@ -16,7 +16,7 @@ function getMessage() {
         }
 
     } else {
-        alert("You must enter a string")
+        alert("You must enter a word")
     }
 }
 
