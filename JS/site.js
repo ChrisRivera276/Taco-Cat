@@ -1,103 +1,44 @@
 // Step One - controller accept request
 function getMessage() {
-    let msg = document.getElementById("txtmessage").value;
-
-    // validate if the msg values are equal
-    if (msg != '') {
-        msg = msg.toLowerCase();
-        let messageFirst = firstMessage(msg)
-        let revMessage = reverseMessage(msg)
-        if (messageFirst == revMessage) {
-            displayMessage("THIS IS A PALINDROME!");
-
-        } else {
-            displayMessage("This is not a palindrome...")
-
-        }
-
+    let msg = document.getElementById("txtMessage").value;
+    if (msg == "") {
+        alert("You must enter a string!");
     } else {
-        alert("You must enter a word")
+        // Changing output to "lowercase" regaurdless of input.
+        msg - msg.toLowerCase();
+        // Declaring regex as a constant to prevent modification.
+        const regex = /[^a-zA-Z0-9]/gi;
+        msg = msg.replace(regex, '');
+        let palinObj = reverseMessage(msg);
+        displayMessage(palinObj);
     }
 }
 
-function firstMessage(msg) {
-    let messageFirst = "";
-    messageFirst = msg;
-    return messageFirst;
-}
+function reverseMessage(originalWord) {
 
+    let revWord = "";
+    let returnObj = {};
 
-function reverseMessage(msg) {
-    let revMessage = "";
+    revWord = originalWord.split("").reverse().join("");
 
-    for (let index = msg.length - 1; index >= 0; index--) {
-        let char = msg[index];
-        revMessage += char;
+    if(originalWord==revWord) {
+        returnObj.message = `The word/phrase is a palindrome!`
+        returnObj.IsPalindrome = true;
+    }else{
+        returnObj.message = `The word/phrase is not a palindrome!`
+        returnObj.IsPalindrome = false;
     }
 
-    return revMessage;
+    returnObj.originalWord = originalWord;
+    returnObj.reversedWord = revWord;
+
+    return returnObj;
+
 }
 
-
-
-
-
-
-// Final Step - view
-function displayMessage(message) {
-
-    //fist get ol element from page
+// Final Step - View
+function displayMessage(palinObj) {
     element = document.getElementById("results");
-    element.innerHTML = message;
+    element.innerHTML = `${palinObj.message} - ${palinObj.originalWord}`;
+
 }
-
-
-
-
-
-
-
-// // Step One - controller accept request
-// function getMessage() {
-//     let msg = document.getElementById("txtmessage").value;
-
-//     // validate if the msg not equal to empty string
-//     if (msg != '') {
-//         msg = msg.toLowerCase();
-//         let messageFirst = firstMessage(msg);
-//         let revMessage = reverseMessageB(msg);
-
-//         displayMessage(messageFirst + revMessage);
-
-//     } else {
-//         alert("You must enter a string")
-//     }
-// }
-
-// function firstMessage(msg) {
-//     let messageFirst = "";
-//     messageFirst = msg;
-//     return messageFirst;
-// }
-
-
-
-// function reverseMessageB(msg) {
-
-//     let revMessage = "";
-//     revMessage = msg.split("").reverse().join("");
-
-//     return revMessage;
-// }
-
-
-
-
-
-// // Final Step - view
-// function displayMessage(message) {
-
-//     //fist get ol element from page
-//     element = document.getElementById("results");
-//     element.innerHTML = message;
-// }

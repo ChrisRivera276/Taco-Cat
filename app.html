@@ -30,6 +30,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
 
+   
+
+
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -67,20 +70,20 @@
 
     <main class="flex-shrink-0">
         <div class="container mt-5">
-            <div class="row">
-                <div class="col-1">
+            <div class="row row-cols-2">
+                <div class="col-1 d-flex justify-content-center">
                     <img src="/img/Taco_Cat_Logo_50.png" alt="">
                 </div>
-                <div class="col">
+                <div class="col d-flex justify-content-start">
                     <h1>Taco Cat</h1>
                 </div>
             </div>
-            
+
             <p>A palindrome checker</p>
             <div class="row align-items-end">
                 <div class="col">
-                    <label for="txtmessage" class="form-label">Palindrome</label>
-                    <input type="text" name="txtmessage" class="form-control" id="txtmessage"
+                    <label for="txtMessage" class="form-label">Palindrome</label>
+                    <input type="text" name="txtMessage" class="form-control" id="txtMessage"
                         placeholder="Enter word or phrase">
                 </div>
                 <div class="col">
@@ -88,9 +91,9 @@
                 </div>
             </div>
             <div class="messagestyle mt-5">
-                <ol id="results" class="list-group list-group-numbered">
+                <div id="results" class="list-group list-group-numbered">
                     <!-- Message will go here -->
-                </ol>
+                </div>
             </div>
         </div>
     </main>
@@ -132,7 +135,7 @@
     <script>
         document.getElementById("btnSubmit").addEventListener("click", getMessage)
     </script>
-
+    
 
 </body>
 
