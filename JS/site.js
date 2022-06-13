@@ -5,7 +5,7 @@ function getMessage() {
         alert("You must enter a string!");
     } else {
         // Changing output to "lowercase" regaurdless of input.
-        msg - msg.toLowerCase();
+        msg = msg.toLowerCase();
         // Declaring regex as a constant to prevent modification.
         const regex = /[^a-zA-Z0-9]/gi;
         msg = msg.replace(regex, '');
@@ -21,10 +21,10 @@ function reverseMessage(originalWord) {
 
     revWord = originalWord.split("").reverse().join("");
 
-    if(originalWord==revWord) {
+    if (originalWord == revWord) {
         returnObj.message = `The word/phrase is a palindrome!`
         returnObj.IsPalindrome = true;
-    }else{
+    } else {
         returnObj.message = `The word/phrase is not a palindrome!`
         returnObj.IsPalindrome = false;
     }
@@ -33,12 +33,10 @@ function reverseMessage(originalWord) {
     returnObj.reversedWord = revWord;
 
     return returnObj;
-
 }
 
 // Final Step - View
 function displayMessage(palinObj) {
     element = document.getElementById("results");
     element.innerHTML = `${palinObj.message} - ${palinObj.originalWord}`;
-
 }
